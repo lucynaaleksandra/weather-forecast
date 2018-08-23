@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body {
-  margin: 30px;
+  margin: 15px 50px;
   padding: 0;
   width: 100vw;
   min-height: 100vh;
@@ -10,21 +10,47 @@ body {
 }
 
 .input-group {
-  margin: 0 auto;
+  // margin-left: 7em;
   width: 50%;
 }
 
 .search-bar {
-  padding: 5px;
-  font-size: 1em;
+  font-size: 1.3em;
   height: 2em;
-  width: 20em;
+  width: 70%;
 }
 
-.submit-btn {
-  // padding: 10px 20px;
-  margin: 20px;
-  font-size: 1em;
-  height: 2.6em;
+.button--submit {
+  padding: 10px 20px;
+  margin-left: 12px;
+  border-radius: 6px;
+  background-color: lightgray;
+  font-size: 1.2em;
+  height: 2.4em;
+  width: 20%;
   text-align: center;
+  text-transform: uppercase;
 }
+
+.table {
+  // margin: 50px;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  // grid-gap: 50px;
+  float: left;
+}
+
+th, td {
+  padding: 20px;
+  border-bottom: 1px solid gray;
+  width: 250px;
+  font-size: 20px;
+  // text-align: left;
+  // vertical-align: middle;
+}
+
+// td:first-of-type, td:first-of-type > div {
+//   height: 200px;
+//   width: 250px;
+// }

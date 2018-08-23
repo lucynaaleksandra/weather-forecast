@@ -7,20 +7,28 @@ import { Sparklines, SparklinesLine } from 'react-sparklines'
 class WeatherList extends Component {
   renderWeather(cityData) {
     const name = cityData.city.name
-    const temps = cityData.list.temps.map(weather => weather.main.temp)
-    // const humidities = cityData.list.humidities.map(weather => weather.main.humidity)
-    // const pressures = cityData.list.pressures.map(weather => weather.main.pressure)
+    const temps = cityData.list.map(weather => weather.main.temp)
+    const humidities = cityData.list.map(weather => weather.main.humidity)
+    const pressures = cityData.list.map(weather => weather.main.pressure)
 
     return (
       <tr key={name}>
         <td>{name}</td>
         <td>
           <Sparklines height={120} width={180} data={temps}>
-            <SparklinesLine color="red">{}</SparklinesLine>
+            <SparklinesLine color="red">{temps}</SparklinesLine>
           </Sparklines>
         </td>
-        <td></td>
-        <td></td>
+        <td>
+          <Sparklines height={120} width={180} data={pressures}>
+            <SparklinesLine color="green">{pressures}</SparklinesLine>
+          </Sparklines>
+        </td>
+        <td>
+          <Sparklines height={120} width={180} data={humidities}>
+            <SparklinesLine color="orange">{humidities}</SparklinesLine>
+          </Sparklines>
+        </td>
       </tr>
     )
   }
@@ -30,15 +38,15 @@ class WeatherList extends Component {
       <table>
         <thead>
           {/* <Typography variant="display1" > */}
-            <tr>
-              <th>City</th>
-              <th>Temp (K)</th>
-              <th>Pressure (hPa)</th>
-              <th>Humidity (%)</th>
-            </tr>
+          <tr>
+            <th>City</th>
+            <th>Temp (K)</th>
+            <th>Pressure (hPa)</th>
+            <th>Humidity (%)</th>
+          </tr>
           {/* </Typography> */}
         </thead>
-        <tbody>
+        <tbody key={name}>
           {this.props.weather.map(this.renderWeather)}
         </tbody>
       </table>
